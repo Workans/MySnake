@@ -6,11 +6,12 @@ namespace MySnake
     {
         Random rnd = new Random();
         Point point;
+        GameField field = new GameField();
 
 
         public ObjectOnField()
         {
-            point = new Point(rnd.Next(1, 20 - 1), rnd.Next(1, 20 - 1));
+            point = new Point(rnd.Next(1, field.Size - 1), rnd.Next(1, field.Size - 1));
         }
 
         public void SetObject(int countObject, string nameObject)
@@ -75,5 +76,7 @@ namespace MySnake
             }
 
         }
+        public Point LocationObject() => point;
+        public void ObjectNewPosition() => point = new Point(rnd.Next(1, field.Size - 1), rnd.Next(1, field.Size - 1));
     }
 }
